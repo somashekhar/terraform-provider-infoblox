@@ -1,6 +1,5 @@
 # Creates next available network from a given parent CIDR in NIOS grid
 terraform {
-  # Required providers block for Terraform v0.13 and later
   required_providers {
     infoblox = {
       source  = "terraform-providers/infoblox"
@@ -14,6 +13,7 @@ resource "infoblox_network" "demo_network"{
   network_name="ex1"
   tenant_id="test"
   allocate_prefix_len = 24
+  # make sure network container with below CIDR is in place before requesting a network under it
   parent_cidr = "10.0.0.0/16"
   reserve_ip = 2  
 }

@@ -6,12 +6,16 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 3.0"
     }
-    infoblox = {
-      source  = "terraform-providers/infoblox"
-      version = ">= 1.0"
-    }
   }
 }
+
+provider "infoblox"{
+  version="~> 1.0"
+  username="admin"
+  password="infoblox"
+  server="10.196.104.47"
+}
+
 
 # Create a network in Infoblox Grid 
 resource "infoblox_network" "ib_network"{
